@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    environment { 
+        Name = 'Amith'
+        Location = 'Hyderabad'
+    }
+    stages {
+        stage('Example') {
+            steps {
+                sh ('echo my name is: $NAME')
+                sh ('echo I am from: $Location')
+            }
+        }
+    }
+}
+   
