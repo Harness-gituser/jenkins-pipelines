@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                sh ('echo my name is: $NAME')
+                sh ('echo my name is: $Name')
                 sh ('echo I am from: $Location')
             }
         }
