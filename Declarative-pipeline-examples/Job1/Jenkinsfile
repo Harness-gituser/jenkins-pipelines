@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+     //to run the build on any agent
+    //agent any
+    // to run the build on specific agent, use label
+    agent {
+        label 'slave'
+         }
 
     stages {
         stage('Build') {
