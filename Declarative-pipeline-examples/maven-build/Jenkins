@@ -19,8 +19,8 @@ pipeline {
                 mvn clean install
                 ls -lrt
                 echo "build is successfully completed"
-				        '''                         
-		         }
+	        '''                         
+	      }
          }
      }
 }
