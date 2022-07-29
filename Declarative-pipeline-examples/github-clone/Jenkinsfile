@@ -1,0 +1,23 @@
+pipeline {    
+	  agent any	
+    tools {
+        maven "mvn"
+    }
+    environment {
+		    GITHUB_Token = credentails('GitHub-Credentials')
+    }
+    stages {
+        stage("Clone code from github") {
+            steps {
+                echo 'build stage-pull the code from github'
+                sh'''
+                cd $WORKSPACE
+                sudo rm -rf *
+                git clone https://$Github_Token@github.com/onlinebookstore.git -b main
+                pwd
+                ls -lrt
+				        '''                         
+				        }
+            }
+        }
+}
