@@ -1,0 +1,26 @@
+pipeline {    
+	  agent any	
+    tools {
+        maven "mvn"
+    }
+    environment {
+		    GITHUB_Token = credentials('GitHub-Credentials')
+    }
+    stages {
+        stage("Clone code from github") {
+            steps {
+                echo 'build stage-pull the code from github'
+                sh'''
+                cd $WORKSPACE
+                rm -rf *
+                git clone https://$Github_Token@github.com/Harness-gituser/onlinebookstore.git -b main
+                pwd
+                ls -lrt onlinebookstore/
+                mvn clean install
+                ls -lrt
+                echo "build is successfully completed"
+				        '''                         
+		         }
+         }
+     }
+}
